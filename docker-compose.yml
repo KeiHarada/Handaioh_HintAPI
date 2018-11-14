@@ -1,11 +1,12 @@
 version: '2'
 services:
-        api:
-                build: .
-                container_name: "handaioh_hint"
-                ports:
-                        - "15001:80"
-                volumes:
-                        - "./app:/app:ro"
-                restart: always
-                tty: true
+   api:
+      build: .
+      image: handaioh/hint
+      container_name: "handaioh_hint"
+      ports:
+         - "15001:80"
+      volumes:
+         - "./app/hint_api:/app:ro"
+      restart: always
+      tty: true

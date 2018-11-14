@@ -13,4 +13,6 @@ then
 	fi
 fi
 
-exec python3 manage.py "$@"
+#exec python3 manage.py makemigrations
+#exec python3 manage.py migrate
+exec python3 manage.py runserver 0.0.0.0:80
