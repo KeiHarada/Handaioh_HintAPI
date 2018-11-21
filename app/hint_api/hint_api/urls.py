@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import include, url
-from app.hint_api.api_test.urls import router as hint_test_router
+from api_test.urls import router as hint_test_router
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
