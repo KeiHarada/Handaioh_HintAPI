@@ -5,7 +5,7 @@ services:
       image: handaioh/hint
       container_name: "handaioh_hint"
       ports:
-         - "15001:80"
+         - "15000:80"
       volumes:
          - "./app/hint_api:/app:ro"
       restart: always
