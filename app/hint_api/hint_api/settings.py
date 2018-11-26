@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_filters',
     'crispy_forms',
     'api_test',
+    'corsheaders',
 ]
 
 REST_FRAMEWORK = {
@@ -57,7 +58,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL=True
 
 ROOT_URLCONF = 'hint_api.urls'
 
@@ -87,6 +92,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+NEO4J_DATABASES = {
+    'default' : {
+        'HOST':'127.0.0.1',
+        'PORT':7474,
+        'ENDPOINT':'/db/data'
     }
 }
 

@@ -10,6 +10,7 @@ RUN pip install --upgrade pip && \
     pip install markdown && \
     pip install django-filter && \
     pip install django-crispy-forms && \
+    pip install django-cors-headers && \
     rm -rf /var/cache/apk/*
 
 RUN mkdir /app
