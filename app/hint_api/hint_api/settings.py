@@ -94,13 +94,13 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-NEO4J_DATABASES = {
-    'default' : {
-        'HOST':'127.0.0.1',
-        'PORT':7474,
-        'ENDPOINT':'/db/data'
-    }
-}
+#NEO4J_DATABASES = {
+#    'default' : {
+#        'HOST':'127.0.0.1',
+#        'PORT':7474,
+#        'ENDPOINT':'/db/data'
+#    }
+#}
 
 
 # Password validation
