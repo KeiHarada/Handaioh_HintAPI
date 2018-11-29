@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import include, url
+#from ..api_test.urls import router as hint_test_router
+#from ..api_neo4j.urls import
 from api_test.urls import router as hint_test_router
+from api_neo4j.urls import router as hint_router
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include(hint_test_router.urls)),
+    url(r'^api_test/', include(hint_test_router.urls)),
+    url(r'^api/', include(hint_router.urls)),
 ]

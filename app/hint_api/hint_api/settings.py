@@ -25,7 +25,7 @@ SECRET_KEY = 'rjxxvkyt+il9x*yvng8j-q@(nk^imri&*&j+rqf8!i2yqdb_m6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['133.1.244.71', '127.0.0.1']
+ALLOWED_HOSTS = ['bd-ensyu.ist.osaka-u.ac.jp', '133.1.244.71', '127.0.0.1']
 
 
 # Application definition
@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
+    'django_neomodel',
     'crispy_forms',
     'api_test',
+    'api_neo4j',
     'corsheaders',
 ]
 
@@ -51,6 +53,8 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -58,8 +62,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
 ]
 
 CORS_ORIGIN_ALLOW_ALL=True
@@ -94,14 +96,22 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-#NEO4J_DATABASES = {
-#    'default' : {
-#        'HOST':'127.0.0.1',
-#        'PORT':7474,
-#        'ENDPOINT':'/db/data'
-#    }
-#}
 
+NEOMODEL_NEO4J_BOLT_URL = 'bolt://neo4j:handa1oh@bd-ensyu.ist.osaka-u.ac.jp:7687'
+NEOMODEL_SIGNALS = True
+NEOMODEL_FORCE_TIMEZONE = False
+NEOMODEL_ENCRYPTED_CONNECTION = True
+NEOMODEL_MAX_POOL_SIZE = 50
+
+# NEO4J_DATABASES = {
+#     'default': {
+#         'HOST': 'bd-ensyu.ist.osaka-u.ac.jp',
+#         'PORT': 7474,
+#         'ENDPOINT': '/db/data',
+#         'USER': 'neo4j',
+#         'PASSWORD': 'handa1oh',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

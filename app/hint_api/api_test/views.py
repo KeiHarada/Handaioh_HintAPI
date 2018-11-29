@@ -1,9 +1,8 @@
+# coding: utf-8
 import django_filters
 from rest_framework import viewsets
 from .models import Hint
 from .serializer import HintSerializer
-
-# Create your views here.
 
 class HintFilter(django_filters.FilterSet):
 
